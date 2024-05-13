@@ -1,0 +1,207 @@
+/* Resetowanie podstawowych stylów */
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #282828;
+}
+
+/* Stylowanie tytułu */
+.title {
+    text-align: center;
+    margin: 50px 0;
+    font-size: 80px;
+    color: #fafafa;
+}
+
+/* Stylowanie galerii */
+.gallery {
+    width: 100%;
+    margin: 10px auto;
+    max-width: 1400px;
+}
+
+.gallery-item {
+    margin: 3px;
+    width: 32%;
+    position: relative;
+}
+
+.gallery-item img {
+    width: 100%;
+    display: block;
+    height: auto;
+}
+
+/* Stylowanie przycisków i inputów */
+button, input {
+    font-family: 'Poppins', sans-serif;
+}
+
+.save-button, .popup-button, .copy-button, .load-more-button {
+    font-size: 16px;
+    display: block;
+    width: 50%;
+    margin: 20px auto;
+    padding: 10px;
+    cursor: pointer;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.load-more-button{
+    max-width: 250px;
+    background-color: #00ff37;
+    color: black;
+}
+
+.save-button:hover, .popup-button:hover, .copy-button:hover {
+    background-color: #0056b3;
+}
+
+/* Stylowanie checkbox */
+.photo-checkbox {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 10;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-color: #ffffff40;
+    width: 24px;
+    height: 24px;
+    border: 2px solid #fff;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.2s, border-color 0.2s, transform 0.3s; /* Dodano transform do transition */
+    transform: scale(1); /* Początkowa skala */
+}
+
+.photo-checkbox:hover {
+    background-color: #ffffff80; /* Opcjonalnie, można też zmienić inne właściwości przy hover */
+    transform: scale(1.8); /* Zmiana skali elementu */
+}
+
+.photo-checkbox:checked {
+    background-color: #99c794; /* Kolor tła po zaznaczeniu */
+    border: none;   /* Kolor obramowania po zaznaczeniu */
+    background-image: url("ok-svgrepo-com.svg"); /* Ścieżka do obrazka SVG */
+    background-repeat: no-repeat; /* Nie powtarzaj obrazka tła */
+    background-position: center; /* Wyśrodkuj obrazek tła */
+    background-size: 100%; /* Dostosuj rozmiar obrazka tła */
+}
+
+
+
+/* Popup i jego zawartość */
+.popup-background {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+}
+
+.popup-content {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: calc(100% - 20px);
+    max-width: 400px;
+    padding: 20px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+/* Sekcja zapisu */
+.save-section {
+    padding: 50px 0;
+    margin: 30px auto;
+    width: 80%;
+    max-width: 960px;
+    background-color: #ffffff20;
+    border: 2px solid #007BFF;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Dodatkowe elementy UI */
+.author-input, .copy-message {
+    display: block;
+    width: 50%;
+    margin: 20px auto;
+    padding: 10px;
+    text-align: center;
+    font-size: 16px;
+}
+
+.author-input {
+    border: 2px solid #007BFF;
+    border-radius: 5px;
+}
+
+.copy-message {
+    color: #28a745;
+    display: none;
+}
+
+.loading-screen {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.9);
+    z-index: 1500;
+}
+
+.loading-content {
+    text-align: center;
+}
+
+.spinner {
+    margin: 20px auto;
+    width: 50px;
+    height: 50px;
+    border: 5px solid rgba(0, 0, 0, 0.1);
+    border-radius: 50%;
+    border-top: 5px solid #333;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Media Queries dla mniejszych urządzeń */
+@media (max-width: 768px) {
+    .gallery-item {
+        width: 45%;
+    }
+
+    .title, .save-button, .popup-button, .copy-button, .author-input {
+        font-size: 40px;
+    }
+
+    .popup-content {
+        width: calc(100% - 40px);
+    }
+}
+
+#copy-button {
+    display: none;
+}
